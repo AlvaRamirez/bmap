@@ -8,6 +8,37 @@
     ],
     "routes": [
         {
+            "src": ".*",
+            "methods": [
+                "GET",
+                "POST",
+                "DELETE",
+                "PUT",
+                "OPTIONS"
+            ],
+            "headers": {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "Access-Control-Allow-Credentials": "true"
+            },
+            "dest": "app.js",
+            "continue": true
+        },
+        {
+            "src": "/heladeria/(?<id>[^/]+)",
+            "dest": "/app.js/?id=$id",
+            "methods": [
+                "DELETE"
+            ]
+        },
+        {
+            "src": "/heladeria/(?<id>[^/]+)",
+            "dest": "/app.js/?id=$id",
+            "methods": [
+                "PUT"
+            ]
+        },
+        {
             "src": "/heladerias",
             "dest": "/app.js",
             "methods": [
@@ -15,11 +46,12 @@
             ]
         },
         {
-            "src": "/",
+            "src": "/heladerias",
             "dest": "/app.js",
             "methods": [
-                "GET"
+                "POST"
             ]
         }
+        
     ]
 }
