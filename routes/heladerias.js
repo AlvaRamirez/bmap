@@ -55,7 +55,7 @@ const crudHeladerias = (app) => {
 
     modificarHeladerias = function (req, res) {
 
-        heladeria.findById(req.params.id, function (err, heladeria) {
+        Heladeria.findById(req.params.id, function (err, heladeria) {
     
             heladeria.id = req.body.id;
             heladeria.lat = req.body.lat;
